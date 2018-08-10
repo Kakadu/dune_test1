@@ -1,0 +1,16 @@
+(library
+ (name aaa)
+ (public_name aaa)
+ (modules a)
+ (flags ())
+)
+
+(library
+ (name bbb)
+ (modules Empty)
+ ; I want these libraries to be linked using linkall but it doesn't happen
+ (libraries aaa compiler-libs.common ppxlib)
+ (library_flags (-linkall))
+ (flags ())
+)
+
